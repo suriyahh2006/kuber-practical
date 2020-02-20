@@ -6,7 +6,7 @@ node{
   def serviceName = "${appName}-backend"  
   def imageVersion = 'development'
   def namespace = 'development'
-  def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
+  def imageTag = "gcr.io/suriyahh2006/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
   
   //Checkout Code from Git
   checkout scm
@@ -18,7 +18,7 @@ node{
   
   //Stage 2 : Push the image to docker registry
   stage('Push image to registry') {
-      sh("gcloud docker -- push ${imageTag}")
+      sh("docker -- push ${imageTag}")
   }
   
   //Stage 3 : Deploy Application
@@ -59,4 +59,5 @@ node{
                    break
   }
 
+}
 }
