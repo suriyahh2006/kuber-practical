@@ -1,5 +1,5 @@
 #Docker base image : Alpine Linux with OpenJDK JRE
-FROM openjdk:8-jre
+FROM rtfpessoa/ubuntu-jdk8
 
 #Check the java version
 RUN ["java", "-version"]
